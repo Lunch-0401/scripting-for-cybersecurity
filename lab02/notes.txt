@@ -1,0 +1,68 @@
+whoami
+hostname
+date
+pwd
+
+ls
+ls -l
+ls -a
+ls -la
+
+pwd
+cd ..
+ls
+cd lab02
+pwd
+
+cd logs
+touch access.log auth.log firewall.log
+cd ..
+pwd
+Linux command line lab
+
+whoami > system.txt
+hostname >>system.txt
+date >> system.txt
+pwd >> system.txt
+
+-h
+ls -ult
+-p
+Print file output to terminal
+
+name="Alex"
+course="Cybersecurity"
+year="2"
+echo "$name is studying $course in year $year"
+
+which bash
+which python3
+which grep
+which cat
+
+Module: Scripting
+Module: $module
+
+name=$(whoami)
+hostname=$(hostname)
+dir=$(pwd)
+
+ls | wc -l
+ls -la | wc -l
+env | wc -l
+
+env | grep USER
+ls /usr/bin | grep python
+ls /usr/bin | grep ssh
+ls /usr/bin | grep python | wc -l
+
+ls /usr/bin | grep ssh | wc -l
+ls /usr/bin | grep python | wc -l
+env | grep PATH | wc -l
+ls | wc -l
+
+name=$(whoami)
+host=$(hostname)
+dir=$(pwd)
+num=$(ls | wc -l)
+
