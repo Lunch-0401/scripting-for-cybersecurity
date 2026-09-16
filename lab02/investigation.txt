@@ -1,0 +1,8 @@
+codespace
+codespaces-b67d40
+/home/codespace
+/bin/bash
+/home/codespace/.python/current/bin/python3
+/usr/bin/bash
+91
+8
