@@ -1,0 +1,17 @@
+Authentication Analysis
+
+Total Events: 184
+Failed Password Events: 124
+Accepted Password Events: 57
+Invalid User Events: 3
+
+Fail Login Sources:
+203.0.113.77
+203.0.113.10
+198.51.100.99
+198.51.100.24
+192.168.1.35
+192.168.1.20
+
+echo "Failed Password Events: $(grep "Failed password auth.log |
+wc -l)" >> auth-report.txt

@@ -1,0 +1,73 @@
+wc -l auth.log
+wc -l access.log
+head -n 3 auth.log
+tail -n 3 auth.log
+
+grep "Failed password" auth.log
+grep "Accepted password" auth.log
+grep "root" auth.log
+grep "203.0.113.10" auth.log
+grep "invalid user" auth.log
+
+grep -i "failed password" auth.log | wc -l
+grep -i "accepted password" auth.log | wc -l
+grep "admin" auth.log | wc -l
+grep "203.0.113.10" auth.log | wc -l
+grep -v "Failed password" auth.log | wc -l
+
+grep "^Sep" auth.log
+grep "ssh2" auth.log
+grep -E "admin|root" auth.log
+grep -E "Invalid user|Failed password" auth.log
+
+grep "Failed password" auth.log |
+awk '{for(i=1;i<=NF;i++) if($i=="from") print $(i+1)}'
+
+grep "Failed password" auth.log |
+awk '{for(i=1;i<=NF;i++) if($i=="from") print $(i+1)}' |
+sort |
+uniq -c
+
+grep "Failed password" auth.log |
+awk '{for(i=1;i<=NF;i++) if($i=="from") print $(i+1)}' |
+sort |
+uniq -c |
+sort -nr
+
+grep "Failed password" auth.log |
+awk '{for(i=1;i<=NF;i++) if($i=="from") print $(i+1)}' |
+sort |
+uniq -c |
+wc -l
+
+grep "Failed password" auth.log |
+awk '{for(i=1;i<=NF;i++) if($i=="for") print $(i+1)}'
+
+grep "Failed password" auth.log |
+awk '{for(i=1;i<=NF;i++) if($i=="for") print $(i+1)}' |
+sort |
+uniq -c |
+sort -nr |
+head -n 1
+
+grep "Failed password" auth.log |
+awk '{for(i=1;i<=NF;i++) if($i=="for") print $(i+1)}' |
+wc -l
+
+cut -d',' -f1 users.csv
+cut -d',' -f2 users.csv
+cut -d',' -f1,3 users.csv
+grep "staff" users.csv | cut -d',' -f1
+grep "disabled" users.csv | cut -d',' -f4 | wc -l
+
+grep -Ff iocs.txt auth.log
+grep -Ff iocs.txt auth.log | wc -l
+grep -Ff iocs.txt access.log
+
+grep 'GET /admin ' access.log | wc -l
+grep '" 404 ' access.log | wc -l
+grep '" 403 ' access.log | wc -l 
+grep '" 404 ' access.log | wc -l 
+grep "sqlmap" access.log | wc -l
+grep "GET /.env" access.log | wc -l
+awk '{print $1}' access.log | sort | uniq -c | sort -nr | head -n 1
