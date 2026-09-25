@@ -1,0 +1,9 @@
+--- config-new.txt	2026-09-25 15:00:03.318120750 +0000
++++ config-old.txt	2026-09-25 15:00:03.215120751 +0000
+@@ -1,4 +1,4 @@
+ server=web01
+-port=443
++port=80
+ logging=enabled
+-timeout=60
++timeout=30
